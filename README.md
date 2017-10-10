@@ -1,5 +1,5 @@
 
-<center>![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtReleaseExamples.png?raw=true)</center>
+<div align=center>![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtReleaseExamples.png?raw=true)</div>
 
 # QtReleaseExamples
 Qt 发布相关的技术分享
