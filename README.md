@@ -1,5 +1,5 @@
 
-![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtReleaseExamples.png?raw=true)
+![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtReleaseExamples.jpg?raw=true)
 
 # QtReleaseExamples
 Qt 发布相关的技术分享
