@@ -15,3 +15,8 @@ Qt 发布相关的技术分享
 QmlVersionInfo: Qml程序版本信息
 
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QmlVersionInfo/show.jpg?raw=true)
+
+
+SilkZipSplitter: Silk分割Zip文件器
+
+![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/SilkZipSplitter/show.gif?raw=true)

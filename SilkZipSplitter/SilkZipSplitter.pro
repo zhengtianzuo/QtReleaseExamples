@@ -4,6 +4,14 @@
 #
 #-------------------------------------------------
 
-TEMPLATE = subdirs
-SUBDIRS += QmlVersionInfo
-SUBDIRS += SilkZipSplitter
+QT += qml quick widgets
+
+CONFIG += c++11
+
+SOURCES += main.cpp \
+    SilkZipSplitter.cpp
+
+RESOURCES += qml.qrc
+
+HEADERS += \
+    SilkZipSplitter.h
