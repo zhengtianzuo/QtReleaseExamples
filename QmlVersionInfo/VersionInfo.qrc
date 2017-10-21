@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>logo.ico</file>
+		<file>VersionInfo.rc</file>
+    </qresource>
+</RCC>
+
