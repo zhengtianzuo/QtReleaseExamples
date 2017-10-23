@@ -13,7 +13,7 @@ ApplicationWindow {
     visible: true
     width: 600
     height: 300
-    title: qsTr("Silk分割Zip文件器")
+    title: qsTr("Silk Zip文件分割器")
 
     Column{
         spacing: 12

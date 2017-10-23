@@ -1,6 +1,6 @@
 ﻿/*!
  *@file SilkZipSplitter.h
- *@brief Silk分割Zip文件器
+ *@brief Silk Zip文件分割器
  *@version 1.0
  *@section LICENSE Copyright (C) 2003-2103 CamelSoft Corporation
  *@author zhengtianzuo
@@ -9,7 +9,7 @@
 #include <QObject>
 #include <QThread>
 
-const int intPakageSize = 5*1024*1024;
+const int intPakageSize = 3*1024*1024;
 
 class SplitterThread : public QThread
 {
