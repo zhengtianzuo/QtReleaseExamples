@@ -20,3 +20,9 @@ QmlVersionInfo: Qml程序版本信息
 SilkZipSplitter: Silk Zip文件分割器
 
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/SilkZipSplitter/show.gif?raw=true)
+
+
+SilkInstaller: Silk 安装程序
+
+![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/SilkInstaller/show.gif?raw=true)
+
