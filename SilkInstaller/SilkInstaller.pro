@@ -11,3 +11,7 @@ CONFIG += c++11
 SOURCES += main.cpp
 
 RESOURCES += qml.qrc
+
+win32{
+    RC_FILE = SilkInstaller.rc
+}

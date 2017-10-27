@@ -15,6 +15,8 @@ CheckBox {
 
     id: chk
     text: txtText
+    font.family: "Microsoft YaHei"
+    font.pixelSize: 15
     indicator:
         Image {
         id: img
@@ -32,7 +34,7 @@ CheckBox {
         color: chk.down ? "#AA0000" : "#148014"
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
-        leftPadding: chk.indicator.width + chk.spacing
+        leftPadding: chk.indicator.width
     }
 }
 

@@ -15,6 +15,8 @@ Text {
 
     id: text
     text: txtText
+    font.family: "Microsoft YaHei"
+    font.pixelSize: 15
     MouseArea {
         anchors.fill: parent;
         hoverEnabled: true;

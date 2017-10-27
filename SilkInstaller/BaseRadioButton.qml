@@ -13,7 +13,8 @@ RadioButton {
 
 	id: control
     text: txtText
-
+    font.family: "Microsoft YaHei"
+    font.pixelSize: 15
 	indicator: Rectangle {
 		implicitWidth: 18
 		implicitHeight: 18

@@ -8,6 +8,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import Qt.labs.platform 1.0
+import QtGraphicalEffects 1.0
 
 ApplicationWindow {
     id: mainWindow
@@ -16,6 +17,8 @@ ApplicationWindow {
     height: defaultMargin*5 + rowBtn.height + imgBack.height + colMore.height + btnStart.height + rowLicense.height
     title: qsTr("")
     flags: Qt.Window | Qt.FramelessWindowHint
+    font.family: "Microsoft YaHei"
+    font.pixelSize: 15
 
     property int defaultMargin: 12
 
@@ -42,20 +45,44 @@ ApplicationWindow {
         }
     }
 
+    FolderDialog {
+        id: folderDlg
+        onAccepted: {
+            var path = folderDlg.currentFolder.toString();
+            path = path.replace(/^(file:\/{3})/,"");
+            edtPath.text = path;
+        }
+    }
+
+    Rectangle{
+        id: rect
+        color: "#148014"
+        anchors.fill: parent
+    }
+
+    RectangularGlow {
+        anchors.fill: rect
+        glowRadius: 10
+        spread: 0.0
+        color: "white"
+        cornerRadius: 10
+    }
+
     Column{
+        width: parent.width
         spacing: defaultMargin
 
         Row{
             id: rowBtn
             spacing: defaultMargin/2
             anchors.right: parent.right
-            anchors.rightMargin: defaultMargin/2
+            anchors.rightMargin: defaultMargin
             BaseButton{
                 id: btnMin
                 anchors.top: parent.top
-                anchors.topMargin: defaultMargin/2
-                height: 20
-                width: 20
+                anchors.topMargin: defaultMargin
+                height: 24
+                width: 24
                 imgEntered: "qrc:/images/min(3).png"
                 imgExited: "qrc:/images/min.png"
                 imgPressed: "qrc:/images/min(1).png"
@@ -66,9 +93,9 @@ ApplicationWindow {
             BaseButton{
                 id: btnClose
                 anchors.top: parent.top
-                anchors.topMargin: defaultMargin/2
-                height: 20
-                width: 20
+                anchors.topMargin: defaultMargin
+                height: 24
+                width: 24
                 imgEntered: "qrc:/images/close(3).png"
                 imgExited: "qrc:/images/close.png"
                 imgPressed: "qrc:/images/close(1).png"
@@ -80,37 +107,36 @@ ApplicationWindow {
 
         Image {
             id: imgBack
-            height: 200
-            width: mainWindow.width
+            height: 240
+            width: parent.width*0.9
+            anchors.horizontalCenter: parent.horizontalCenter
             source: "qrc:/images/back.jpg"
-        }
 
-        FolderDialog {
-            id: folderDlg
-            onAccepted: {
-                var path = folderDlg.currentFolder.toString();
-                path = path.replace(/^(file:\/{3})/,"");
-                edtPath.text = path;
+            Image {
+                id: imgLogo
+                anchors.centerIn: parent
+                source: "qrc:/images/Logo.png"
             }
         }
+
 
         Column{
             id: colMore
             height: 0
             width: parent.width
-            spacing: defaultMargin/2
+            spacing: defaultMargin
             visible: false
 
             Row{
-                height: 24
-                width: parent.width*0.8
+                height: 32
+                width: parent.width*0.9
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: defaultMargin/2
 
                 Rectangle{
-                    height: 24
+                    height: 32
                     width: parent.width - btnPath.width
-                    border.color: "#000000"
+                    border.color: "#148014"
                     border.width: 1
 
                     TextEdit{
@@ -126,7 +152,7 @@ ApplicationWindow {
                 }
                 BaseButton{
                     id: btnPath
-                    height: 24
+                    height: 32
                     width: 120
                     txtText: qsTr("浏览")
                     onSClicked: {
@@ -135,8 +161,8 @@ ApplicationWindow {
                 }
             }
             Row{
-                height: 24
-                width: parent.width*0.8
+                height: 32
+                width: parent.width*0.9
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: defaultMargin/2
 
@@ -158,13 +184,6 @@ ApplicationWindow {
 
                     }
                 }
-            }
-            Row{
-                height: 24
-                width: parent.width*0.8
-                anchors.horizontalCenter: parent.horizontalCenter
-                spacing: defaultMargin/2
-
                 BaseCheckBox {
                     id: chkAuto
                     height: 24
@@ -179,17 +198,17 @@ ApplicationWindow {
 
         BaseButton{
             id: btnStart
-            height: 32
-            width: 200
+            height: 48
+            width: 240
             anchors.horizontalCenter: parent.horizontalCenter
-            txtText: qsTr("开始")
+            txtText: qsTr("立即安装")
         }
 
         Row{
             id: rowLicense
             width: parent.width
             anchors.left: parent.left
-            anchors.leftMargin: defaultMargin
+            anchors.leftMargin: defaultMargin*2
             anchors.right: parent.right
             anchors.rightMargin: defaultMargin
 
@@ -206,8 +225,8 @@ ApplicationWindow {
             BaseLinkText {
                 id: btnLicense
                 height: 24
-                anchors.top: parent.top
-                anchors.topMargin: defaultMargin/2
+                anchors.top: chkLicense.top
+                anchors.topMargin: 2
                 txtText: '<html></style><a>使用协议</a></html>'
                 color: "blue"
                 onSClicked: {
@@ -217,7 +236,7 @@ ApplicationWindow {
 
             Item{
                 height: 24
-                width: parent.width - chkLicense.width - btnLicense.width - chkMore.width - btnMore.width
+                width: parent.width - chkLicense.width - btnLicense.width - chkMore.width - btnMore.width - defaultMargin
             }
 
             BaseCheckBox {
@@ -234,8 +253,8 @@ ApplicationWindow {
             BaseLinkText {
                 id: btnMore
                 height: 24
-                anchors.top: parent.top
-                anchors.topMargin: defaultMargin/2
+                anchors.top: chkMore.top
+                anchors.topMargin: 2
                 text: '<html></style><a>自定义选项</a></html>'
                 color: "blue"
                 onSClicked: {

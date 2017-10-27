@@ -29,5 +29,6 @@
         <file>BaseCheckBox.qml</file>
         <file>BaseLinkText.qml</file>
         <file>BaseRadioButton.qml</file>
+        <file>images/Logo.png</file>
     </qresource>
 </RCC>
