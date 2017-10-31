@@ -19,6 +19,9 @@ ApplicationWindow {
     flags: Qt.Window | Qt.FramelessWindowHint
     font.family: "Microsoft YaHei"
     font.pixelSize: 15
+    Component.onCompleted: {
+        edtPath.text = silkInstaller.cls_getAppPath();
+    }
 
     property int defaultMargin: 12
 
@@ -153,7 +156,7 @@ ApplicationWindow {
                 BaseButton{
                     id: btnPath
                     height: 32
-                    width: 120
+                    width: 60
                     txtText: qsTr("浏览")
                     onSClicked: {
                         folderDlg.open();
@@ -202,6 +205,9 @@ ApplicationWindow {
             width: 240
             anchors.horizontalCenter: parent.horizontalCenter
             txtText: qsTr("立即安装")
+            onClicked: {
+
+            }
         }
 
         Row{
@@ -218,7 +224,7 @@ ApplicationWindow {
                 text: qsTr("阅读并同意")
                 checked: true
                 onToggled:{
-
+                    btnStart.enabled = checked;
                 }
             }
 
