@@ -6,8 +6,11 @@
  *@author zhengtianzuo
 */
 #include "SilkInstaller.h"
+#include <QFileInfo>
+#include <QDir>
 
-SilkInstaller::SilkInstaller()
+SilkInstaller::SilkInstaller():
+    m_strAppPath("")
 {
     
 }
@@ -15,4 +18,21 @@ SilkInstaller::SilkInstaller()
 QString SilkInstaller::cls_getAppPath()
 {
     return(QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0]);
+}
+
+void SilkInstaller::cls_start()
+{
+    //判断文件夹是否有效
+    QFileInfo appPath(m_strAppPath);
+    if (appPath.isDir() != true) {emit sShowError("");}
+
+    QDir appDir(m_strAppPath);
+    if (appDir.exists() != true) {emit sShowError("");}
+
+
+}
+
+void SilkInstaller::cls_setAppPath(QString strAppPath)
+{
+    m_strAppPath = strAppPath;
 }

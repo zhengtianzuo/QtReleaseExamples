@@ -16,10 +16,14 @@ class SilkInstaller : public QObject
 public:
     SilkInstaller();
     Q_INVOKABLE QString cls_getAppPath();
+    Q_INVOKABLE void cls_start();
+    Q_INVOKABLE void cls_setAppPath(QString strAppPath);
+
 public slots:
 
-private:
-    
 signals:
-    
+    void sShowError(QString strError);
+
+private:
+    QString m_strAppPath;
 };

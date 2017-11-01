@@ -113,12 +113,12 @@ ApplicationWindow {
             height: 240
             width: parent.width*0.9
             anchors.horizontalCenter: parent.horizontalCenter
-            source: "qrc:/images/back.jpg"
+            //source: "qrc:/images/back.jpg"
 
             Image {
                 id: imgLogo
                 anchors.centerIn: parent
-                source: "qrc:/images/Logo.png"
+                //source: "qrc:/images/Logo.png"
             }
         }
 
@@ -206,7 +206,7 @@ ApplicationWindow {
             anchors.horizontalCenter: parent.horizontalCenter
             txtText: qsTr("立即安装")
             onClicked: {
-
+                silkInstaller.cls_start();
             }
         }
 
@@ -270,4 +270,12 @@ ApplicationWindow {
             }
         }
     }
+
+    Connections{
+        target: silkInstaller
+        onSShowError:{
+
+        }
+    }
+
 }
