@@ -54,6 +54,7 @@ ApplicationWindow {
             var path = folderDlg.currentFolder.toString();
             path = path.replace(/^(file:\/{3})/,"");
             edtPath.text = path;
+            silkInstaller.cls_setAppPath(path);
         }
     }
 
@@ -205,7 +206,7 @@ ApplicationWindow {
             width: 240
             anchors.horizontalCenter: parent.horizontalCenter
             txtText: qsTr("立即安装")
-            onClicked: {
+            onSClicked: {
                 silkInstaller.cls_start();
             }
         }

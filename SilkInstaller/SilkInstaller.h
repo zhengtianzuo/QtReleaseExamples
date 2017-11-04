@@ -8,7 +8,6 @@
 #pragma once
 #include <QObject>
 #include <QStandardPaths>
-#include <QDebug>
 
 class SilkInstaller : public QObject
 {
@@ -23,7 +22,13 @@ public slots:
 
 signals:
     void sShowError(QString strError);
+    void sShowMaxProgress(int nMax);
+    void sShowProgress(int value);
 
 private:
+    bool Sub_ExtractFile(QString strInFile, QString strOutFile);
+    bool Sub_ExtractZipFile(QString strInFile, QString strInFilePath, QString strOutPath);
+    bool Sub_ExtractDir(QString strInFile, QString strOutPath);
+
     QString m_strAppPath;
 };
