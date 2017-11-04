@@ -27,7 +27,7 @@ SilkInstaller: Silk 安装程序
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/SilkInstaller/show.gif?raw=true)
 
 
-QtUninstallInfo: Qml程序卸载信息
+QtUninstallInfo: Qt写入卸载信息
 
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtUninstallInfo/show.jpg?raw=true)
 
