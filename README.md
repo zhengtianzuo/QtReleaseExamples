@@ -31,3 +31,8 @@ QtUninstallInfo: Qt写入卸载信息
 
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtUninstallInfo/show.jpg?raw=true)
 
+
+QtShortcut: Qt创建桌面和开始菜单快捷方式
+
+![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtShortcut/show.jpg?raw=true)
+

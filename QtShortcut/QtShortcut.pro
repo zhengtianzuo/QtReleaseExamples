@@ -4,9 +4,18 @@
 #
 #-------------------------------------------------
 
-TEMPLATE = subdirs
-SUBDIRS += QmlVersionInfo
-SUBDIRS += SilkZipSplitter
-SUBDIRS += SilkInstaller
-SUBDIRS += QtUninstallInfo
-SUBDIRS += QtShortcut
+QT += core
+
+QT -= gui
+
+CONFIG += c++11
+
+TARGET = QtUninstallInfo
+
+CONFIG += console
+
+CONFIG -= app_bundle
+
+TEMPLATE = app
+
+SOURCES += main.cpp
