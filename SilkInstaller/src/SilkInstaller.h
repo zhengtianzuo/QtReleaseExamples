@@ -37,6 +37,7 @@ signals:
     void sShowMaxProgress(int nMax);
     void sShowProgress(int value);
     void sStart();
+    void sFinish();
 
 private:
     bool Sub_funExtractFile(QString strInFile, QString strOutFile);
@@ -58,17 +59,12 @@ public:
     Q_INVOKABLE void cls_start();
     Q_INVOKABLE void cls_setAppPath(QString strAppPath);
 
-public slots:
-    void onSShowError(QString strError);
-    void onSShowMaxProgress(int nMax);
-    void onSShowProgress(int value);
-    void onSStart();
-
 signals:
     void sShowError(QString strError);
     void sShowMaxProgress(int nMax);
     void sShowProgress(int value);
     void sStart();
+    void sFinish();
 
 private:
     QString m_strAppPath;

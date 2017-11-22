@@ -29,26 +29,6 @@ void SilkInstaller::cls_setAppPath(QString strAppPath)
     m_strAppPath = strAppPath + "/";
 }
 
-void SilkInstaller::onSShowError(QString strError)
-{
-    emit sShowError(strError);
-}
-
-void SilkInstaller::onSShowMaxProgress(int nMax)
-{
-    emit sShowMaxProgress(nMax);
-}
-
-void SilkInstaller::onSShowProgress(int value)
-{
-    emit sShowProgress(value);
-}
-
-void SilkInstaller::onSStart()
-{
-    emit sStart();
-}
-
 void SilkInstaller::cls_start()
 {
     //判断文件夹是否有效
@@ -76,13 +56,15 @@ void SilkInstaller::cls_start()
     m_pThread = new SilkInstallerThread();
     m_pThread->Cls_subInit(m_strAppPath);
     QObject::connect(m_pThread, SIGNAL(sShowError(QString)),
-                         this, SLOT(onSShowError(QString)));
+                         this, SIGNAL(sShowError(QString)));
     QObject::connect(m_pThread, SIGNAL(sShowMaxProgress(int)),
-                         this, SLOT(onSShowMaxProgress(int)));
+                         this, SIGNAL(sShowMaxProgress(int)));
     QObject::connect(m_pThread, SIGNAL(sShowProgress(int)),
-                         this, SLOT(onSShowProgress(int)));
+                         this, SIGNAL(sShowProgress(int)));
     QObject::connect(m_pThread, SIGNAL(sStart()),
-                         this, SLOT(onSStart()));
+                         this, SIGNAL(sStart()));
+    QObject::connect(m_pThread, SIGNAL(sFinish()),
+                         this, SIGNAL(sFinish()));
     m_pThread->start();
     emit sStart();
 }
@@ -144,7 +126,7 @@ void SilkInstallerThread::run()
     fApp.link(strMenuLink);
 #endif
 
-
+    emit sFinish();
 }
 
 #ifdef Q_OS_WIN32

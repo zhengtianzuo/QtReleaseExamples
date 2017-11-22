@@ -27,6 +27,7 @@ ApplicationWindow {
 
     property int defaultMargin: 12
     property double progressStep: 1.0
+    property bool isFinish: false
 
     function onChkMore(){
         if (chkMore.checked){
@@ -223,8 +224,12 @@ ApplicationWindow {
             font.pixelSize: 18
             txtText: qsTr("立即安装")
             onSClicked: {
-                silkInstaller.cls_setAppPath(edtPath.text);
-                silkInstaller.cls_start();
+                if (isFinish === false){
+                    silkInstaller.cls_setAppPath(edtPath.text);
+                    silkInstaller.cls_start();
+                }else{
+                    Qt.quit();
+                }
             }
         }
 
@@ -377,7 +382,7 @@ ApplicationWindow {
     Connections{
         target: silkInstaller
         onSShowError:{
-            messageDialog.title = qsTr("错误     ");
+            messageDialog.title = qsTr("错误");
             messageDialog.text = strError;
             messageDialog.visible = true;
         }
@@ -397,6 +402,13 @@ ApplicationWindow {
             cProgress.visible = true;
             chkMore.checked = false;
             onChkMore();
+        }
+        onSFinish:{
+            imgLogo.opacity = 1.0;
+            cProgress.visible = false;
+            btnStart.txtText = qsTr("完成");
+            btnStart.visible = true;
+            isFinish = true;
         }
     }
 
