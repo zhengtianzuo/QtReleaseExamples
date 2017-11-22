@@ -9,6 +9,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import Qt.labs.platform 1.0
 import QtGraphicalEffects 1.0
+import documentHandler 1.0
 
 ApplicationWindow {
     id: mainWindow
@@ -21,9 +22,11 @@ ApplicationWindow {
     font.pixelSize: 15
     Component.onCompleted: {
         edtPath.text = silkInstaller.cls_getAppPath();
+        document.load("qrc:/LICENSE(CN).htm");
     }
 
     property int defaultMargin: 12
+    property double progressStep: 1.0
 
     function onChkMore(){
         if (chkMore.checked){
@@ -73,6 +76,7 @@ ApplicationWindow {
     }
 
     Column{
+        id: mainCol
         width: parent.width
         spacing: defaultMargin
 
@@ -114,12 +118,23 @@ ApplicationWindow {
             height: 240
             width: parent.width*0.9
             anchors.horizontalCenter: parent.horizontalCenter
-            //source: "qrc:/images/back.jpg"
+            source: "qrc:/images/back.jpg"
 
             Image {
                 id: imgLogo
                 anchors.centerIn: parent
-                //source: "qrc:/images/Logo.png"
+                source: "qrc:/images/Logo.png"
+            }
+
+            QmlCircularProgress{
+                id: cProgress
+                visible: false
+                anchors.centerIn: parent
+                arcWidth: 16
+                radius: 60
+                interval: 1
+                arcColor: "#148014"
+                arcBackgroundColor: "#AAAAAA"
             }
         }
 
@@ -205,8 +220,10 @@ ApplicationWindow {
             height: 48
             width: 240
             anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: 18
             txtText: qsTr("立即安装")
             onSClicked: {
+                silkInstaller.cls_setAppPath(edtPath.text);
                 silkInstaller.cls_start();
             }
         }
@@ -237,7 +254,9 @@ ApplicationWindow {
                 txtText: '<html></style><a>使用协议</a></html>'
                 color: "blue"
                 onSClicked: {
-
+                    mainCol.visible = false;
+                    recLicense.visible = true;
+                    btnReturn.visible = true;
                 }
             }
 
@@ -272,10 +291,112 @@ ApplicationWindow {
         }
     }
 
+    Rectangle{
+        id: recLicense
+        clip: true
+        visible: false
+        height: parent.height
+        width: parent.width
+        color: "#FFFFFF"
+        Keys.onUpPressed: vbar.decrease()
+        Keys.onDownPressed: vbar.increase()
+
+        DocumentHandler {
+            id: document
+            onLoaded: {
+                txtLicense.text = text
+            }
+        }
+
+        TextArea{
+            id: txtLicense
+            height: contentHeight
+            width: recLicense.width - vbar.width
+            y: -vbar.position * txtLicense.height
+            font.family: "Microsoft YaHei"
+            font.pixelSize: 15
+            readOnly: true
+            selectByKeyboard: true
+            selectByMouse: true
+            textFormat: TextEdit.RichText
+            wrapMode: TextEdit.WrapAnywhere
+
+            MouseArea{
+                anchors.fill: parent
+                onWheel: {
+                    if (wheel.angleDelta.y > 0) {
+                        vbar.decrease();
+                    }
+                    else {
+                        vbar.increase();
+                    }
+                }
+                onClicked: {
+                    txtLicense.forceActiveFocus();
+                }
+            }
+        }
+        ScrollBar {
+            id: vbar
+            hoverEnabled: true
+            active: hovered || pressed
+            orientation: Qt.Vertical
+            size: recLicense.height / txtLicense.contentHeight
+            width: 10
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+        }
+    }
+
+    BaseButton{
+        id: btnReturn
+        visible: false
+        height: 32
+        width: 80
+        anchors.top: parent.top
+        anchors.topMargin: defaultMargin
+        anchors.right: parent.right
+        anchors.rightMargin: defaultMargin
+        txtText: qsTr("返回")
+        onSClicked: {
+            mainCol.visible = true;
+            recLicense.visible = false;
+            btnReturn.visible = false
+        }
+    }
+
+
+    MessageDialog {
+        id: messageDialog
+        visible: false
+        title: qsTr("")
+        text: qsTr("")
+    }
+
     Connections{
         target: silkInstaller
         onSShowError:{
-
+            messageDialog.title = qsTr("错误     ");
+            messageDialog.text = strError;
+            messageDialog.visible = true;
+        }
+        onSShowMaxProgress:{
+            progressStep = 360/nMax;
+        }
+        onSShowProgress:{
+            cProgress.progress = progressStep*value;
+            cProgress.requestPaint();
+        }
+        onSStart:{
+            imgLogo.source = "qrc:/images/SilkPlatform.png";
+            imgLogo.opacity = 0.3;
+            rowLicense.visible = false;
+            btnStart.visible = false;
+            btnClose.visible = false;
+            cProgress.visible = true;
+            chkMore.checked = false;
+            onChkMore();
         }
     }
 

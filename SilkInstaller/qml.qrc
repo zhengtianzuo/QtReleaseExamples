@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>ui/main.qml</file>
         <file>images/close(1).png</file>
         <file>images/close(2).png</file>
         <file>images/close(3).png</file>
@@ -25,10 +25,13 @@
         <file>images/unchecked.png</file>
         <file>images/down.png</file>
         <file>images/up.png</file>
-        <file>BaseButton.qml</file>
-        <file>BaseCheckBox.qml</file>
-        <file>BaseLinkText.qml</file>
-        <file>BaseRadioButton.qml</file>
+        <file>ui/BaseButton.qml</file>
+        <file>ui/BaseCheckBox.qml</file>
+        <file>ui/BaseLinkText.qml</file>
+        <file>ui/BaseRadioButton.qml</file>
         <file>images/Logo.png</file>
+        <file>LICENSE(CN).htm</file>
+        <file>ui/QmlCircularProgress.qml</file>
+        <file>images/SilkPlatform.png</file>
     </qresource>
 </RCC>

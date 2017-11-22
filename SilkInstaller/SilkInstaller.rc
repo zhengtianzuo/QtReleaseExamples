@@ -20,7 +20,7 @@ BEGIN
             VALUE "FileDescription", "SilkPlatformInstall"
             VALUE "FileVersion", "1.0.0.0"
             VALUE "InternalName", "SilkPlatformInstall"
-            VALUE "LegalCopyright", "Copyright (C) 2003-2103 CamelSoft Corporation"
+            VALUE "LegalCopyright", "Copyright (C) 2003-2103 Ö£Ìì×ô. All rights reserved."
             VALUE "LegalTrademarks", ""
             VALUE "OriginalFilename", "SilkPlatformInstall"
             VALUE "PrivateBuild", "SilkPlatformInstall"

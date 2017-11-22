@@ -6,7 +6,7 @@
  *@author zhengtianzuo
 */
 #include <QCoreApplication>
-#include <qsettings>
+#include <QSettings>
 
 //!@brief 注册表字段
 #ifdef Q_OS_WIN32
