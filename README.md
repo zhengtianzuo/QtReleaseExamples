@@ -36,3 +36,16 @@ QtShortcut: Qt创建桌面和开始菜单快捷方式
 
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtShortcut/show.jpg?raw=true)
 
+
+
+
+***
+#### **捐赠**
+#####捐赠名单:
+
+
+
+<img src="https://github.com/zhengtianzuo/zhengtianzuo.github.io/blob/master/weixin.jpg?raw=true" width="50%" height="50%" /><img src="https://github.com/zhengtianzuo/zhengtianzuo.github.io/blob/master/zhifubao.jpg?raw=true" width="50%" height="50%" />
+
+###### 觉得非常的内容还不错, 就请作者喝杯咖啡吧~~
+***
