@@ -6,7 +6,5 @@
 
 TEMPLATE = subdirs
 SUBDIRS += QmlVersionInfo
-SUBDIRS += SilkZipSplitter
-SUBDIRS += SilkInstaller
 SUBDIRS += QtUninstallInfo
 SUBDIRS += QtShortcut
