@@ -4,10 +4,6 @@
 # QtReleaseExamples
 Qt 发布相关的技术分享
 
-访问博客[CSDN博客](http://blog.csdn.net/zhengtianzuo06)
-
-<font color=#9ACD32>加入QQ群</font>![](https://github.com/zhengtianzuo/zhengtianzuo.github.io/blob/master/qq.png?raw=true): 199672080
-
 ![](https://img.shields.io/badge/%E7%89%88%E6%9D%83%E8%AE%B8%E5%8F%AF-MIT-orange.svg)
 ![](https://img.shields.io/badge/Qt-5.10-blue.svg)
 ![](https://img.shields.io/badge/VS-2017-blue.svg)
@@ -31,10 +27,24 @@ QtShortcut: Qt创建桌面和开始菜单快捷方式
 
 
 
+#### 联系方式:
+***
+|作者|郑天佐|
+|---|---
+|QQ|278969898
+|主页|http://www.camelstudio.cn/
+|邮箱|camelsoft@163.com
+
+访问博客[CSDN博客](http://blog.csdn.net/zhengtianzuo06)
+
+<font color=#9ACD32>加入QQ群</font>![](https://github.com/zhengtianzuo/zhengtianzuo.github.io/blob/master/qq.png?raw=true): 199672080
+
+
+
+
 ***
 #### **捐赠**
 ##### 捐赠名单:
-
 mmann 支付宝 20元
 
 番茄12 微信 18元
@@ -48,6 +58,7 @@ junge2 支付宝 10元
 蓝色起源 微信 4元
 
 街头的小白 微信 1元
+
 
 <img src="https://github.com/zhengtianzuo/zhengtianzuo.github.io/blob/master/weixin.jpg?raw=true" width="30%" height="30%" />           <img src="https://github.com/zhengtianzuo/zhengtianzuo.github.io/blob/master/zhifubao.jpg?raw=true" width="30%" height="30%" />
 
