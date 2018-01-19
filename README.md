@@ -19,16 +19,6 @@ QmlVersionInfo: Qml程序版本信息
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QmlVersionInfo/show.jpg?raw=true)
 
 
-SilkZipSplitter: Silk Zip文件分割器
-
-![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/SilkZipSplitter/show.gif?raw=true)
-
-
-SilkInstaller: Silk 安装程序
-
-![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/SilkInstaller/show.gif?raw=true)
-
-
 QtUninstallInfo: Qt写入卸载信息
 
 ![](https://github.com/zhengtianzuo/QtReleaseExamples/blob/master/QtUninstallInfo/show.jpg?raw=true)
